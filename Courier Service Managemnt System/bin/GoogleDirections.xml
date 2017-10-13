@@ -1,0 +1,271 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GoogleDirections</name>
+    </assembly>
+    <members>
+        <member name="T:GoogleDirections.ElevationService">
+            <summary>
+            Class providing methods to retrieve elevation data for locations
+            </summary>
+        </member>
+        <member name="M:GoogleDirections.ElevationService.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GoogleDirections.ElevationService" /> class.
+            </summary>
+            <param name="key">Your Google Maps API key.</param>
+        </member>
+        <member name="M:GoogleDirections.ElevationService.GetElevation(GoogleDirections.LatLng)">
+            <summary>
+            Gets the elevation of the specified location.
+            </summary>
+            <param name="location">The location.</param>
+            <returns>The elevation of the location</returns>
+        </member>
+        <member name="M:GoogleDirections.ElevationService.GetElevation(System.Collections.Generic.IEnumerable{GoogleDirections.LatLng})">
+            <summary>
+            Gets the elevations for the specified locations.
+            </summary>
+            <param name="locations">The locations.</param>
+            <returns>The elevations of the locations</returns>
+        </member>
+        <member name="T:GoogleDirections.Geocoder">
+            <summary>
+            Wrapper round the Google Maps geocoding service
+            </summary>
+        </member>
+        <member name="M:GoogleDirections.Geocoder.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GoogleDirections.Geocoder"/> class.
+            </summary>
+            <param name="key">Your Google Maps API key.</param>
+        </member>
+        <member name="M:GoogleDirections.Geocoder.ReverseGeocode(GoogleDirections.LatLng)">
+            <summary>
+            Reverses geocode the specified location.
+            </summary>
+            <param name="location">The location.</param>
+            <returns>Returns the address of the location.</returns>
+            <exception cref="T:System.Exception">Failed to find the address</exception>
+        </member>
+        <member name="M:GoogleDirections.Geocoder.ReverseGeocodeComponents(GoogleDirections.LatLng)">
+            <summary>
+            Reverses geocode the specified location.
+            </summary>
+            <param name="location">The location.</param>
+            <returns>A dictionary of address components</returns>
+            <exception cref="T:System.Exception">Failed to find the address</exception>
+        </member>
+        <member name="M:GoogleDirections.Geocoder.Geocode(System.String)">
+            <summary>
+            Geocodes the specified address.
+            </summary>
+            <param name="address">The address.</param>
+            <returns>An array of possible locations</returns>
+        </member>
+        <member name="T:GoogleDirections.HttpWebService">
+            <summary>
+            Base class for using the Google Maps API
+            </summary>
+        </member>
+        <member name="M:GoogleDirections.HttpWebService.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GoogleDirections.HttpWebService"/> class.
+            </summary>
+            <param name="key">Your Google Maps API key.</param>
+        </member>
+        <member name="P:GoogleDirections.HttpWebService.Key">
+            <summary>
+            Gets the Google Maps API key.
+            </summary>
+        </member>
+        <member name="T:GoogleDirections.LatLng">
+            <summary>
+            Class representing a latitude/longitude pair
+            </summary>
+        </member>
+        <member name="M:GoogleDirections.LatLng.#ctor(System.Double,System.Double)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GoogleDirections.LatLng"/> class.
+            </summary>
+            <param name="latitude">The latitude.</param>
+            <param name="longitude">The longitude.</param>
+        </member>
+        <member name="P:GoogleDirections.LatLng.Latitude">
+            <summary>
+            Gets the latitude.
+            </summary>
+        </member>
+        <member name="P:GoogleDirections.LatLng.Longitude">
+            <summary>
+            Gets the longitude.
+            </summary>
+        </member>
+        <member name="M:GoogleDirections.LatLng.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> that represents this instance.
+            </returns>
+        </member>
+        <member name="T:GoogleDirections.Location">
+            <summary>
+            Class representing a location, defined by name and/or by latitude/longitude
+            </summary>
+        </member>
+        <member name="M:GoogleDirections.Location.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GoogleDirections.Location"/> class.
+            </summary>
+            <param name="locationName">Name of the location.</param>
+        </member>
+        <member name="M:GoogleDirections.Location.#ctor(GoogleDirections.LatLng)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GoogleDirections.Location"/> class.
+            </summary>
+            <param name="latLng">The latitude/longitude of the location.</param>
+        </member>
+        <member name="P:GoogleDirections.Location.LatLng">
+            <summary>
+            Gets the latitude/longitude of the location.
+            </summary>
+        </member>
+        <member name="P:GoogleDirections.Location.LocationName">
+            <summary>
+            Gets the name/address of the location.
+            </summary>
+            <value>
+            The name/address of the location.
+            </value>
+        </member>
+        <member name="M:GoogleDirections.Location.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> that represents this instance.
+            </returns>
+        </member>
+        <member name="T:GoogleDirections.Route">
+            <summary>
+            Class representing a route containing directions between various locations
+            </summary>
+        </member>
+        <member name="P:GoogleDirections.Route.Summary">
+            <summary>
+            Gets a summary of the roads used in the calculated route.
+            </summary>
+        </member>
+        <member name="P:GoogleDirections.Route.Legs">
+            <summary>
+            Gets the legs of this route.
+            </summary>
+        </member>
+        <member name="P:GoogleDirections.Route.Duration">
+            <summary>
+            Gets the duration of the route in seconds.
+            </summary>
+        </member>
+        <member name="P:GoogleDirections.Route.Distance">
+            <summary>
+            Gets the distance of the route in metres.
+            </summary>
+        </member>
+        <member name="T:GoogleDirections.RouteDirections">
+            <summary>
+            Class providing methods to retrieve directions between locations
+            </summary>
+        </member>
+        <member name="M:GoogleDirections.RouteDirections.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GoogleDirections.RouteDirections"/> class.
+            </summary>
+            <param name="key">Your Google Maps API key.</param>
+        </member>
+        <member name="M:GoogleDirections.RouteDirections.GetRoute(System.Boolean,GoogleDirections.Location[])">
+            <summary>
+            Gets a route from the Google Maps Directions web service.
+            </summary>
+            <param name="optimize">if set to <c>true</c> optimize the route by re-ordering the locations to minimise the
+            time to complete the route.</param>
+            <param name="locations">The locations.</param>
+            <returns>The route</returns>
+        </member>
+        <member name="T:GoogleDirections.RouteLeg">
+            <summary>
+            Class representing the leg of a route
+            </summary>
+        </member>
+        <member name="P:GoogleDirections.RouteLeg.StartAddress">
+            <summary>
+            Gets the start address for this leg.
+            </summary>
+        </member>
+        <member name="P:GoogleDirections.RouteLeg.EndAddress">
+            <summary>
+            Gets the end address for this leg.
+            </summary>
+        </member>
+        <member name="P:GoogleDirections.RouteLeg.Duration">
+            <summary>
+            Gets the duration of this leg in seconds.
+            </summary>
+        </member>
+        <member name="P:GoogleDirections.RouteLeg.Distance">
+            <summary>
+            Gets the distance of this leg in metres.
+            </summary>
+        </member>
+        <member name="P:GoogleDirections.RouteLeg.Steps">
+            <summary>
+            Gets the steps for this leg of the route.
+            </summary>
+        </member>
+        <member name="P:GoogleDirections.RouteLeg.StartLocation">
+            <summary>
+            Gets the start location of this leg of the route.
+            </summary>
+        </member>
+        <member name="P:GoogleDirections.RouteLeg.EndLocation">
+            <summary>
+            Gets the end location of this leg of the route.
+            </summary>
+        </member>
+        <member name="T:GoogleDirections.RouteStep">
+            <summary>
+            Class representing a step within a leg of a route
+            </summary>
+        </member>
+        <member name="P:GoogleDirections.RouteStep.Duration">
+            <summary>
+            Gets the duration of this step in seconds.
+            </summary>
+        </member>
+        <member name="P:GoogleDirections.RouteStep.Distance">
+            <summary>
+            Gets the distance in metres for this step.
+            </summary>
+        </member>
+        <member name="P:GoogleDirections.RouteStep.StartLocation">
+            <summary>
+            Gets the start location for this step.
+            </summary>
+        </member>
+        <member name="P:GoogleDirections.RouteStep.EndLocation">
+            <summary>
+            Gets the end location of this step.
+            </summary>
+        </member>
+        <member name="P:GoogleDirections.RouteStep.HtmlInstructions">
+            <summary>
+            Gets the instructions for this step with HTML formatting.
+            </summary>
+        </member>
+        <member name="T:GoogleDirections.GoogleMapsException">
+            <summary>
+            Exception thrown if a request to the Google Maps API fails
+            </summary>
+        </member>
+    </members>
+</doc>
